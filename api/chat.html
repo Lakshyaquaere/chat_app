@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/home.css">
+    <script src="/socket.io/socket.io.js"></script>
+ 
+    
+
+    <title>chat</title>
+</head>
+<body>
+    <h1 id ='title'>
+       Chat Room
+    </h1>
+    <div id="name">
+        <form id="form">
+            <input id="myname" type="text" placeholder="name">  
+            <div> <input id="message" type="text" placeholder="chat"></div>
+           <button id="submit">send</button>  
+        </form>
+    </div>
+    <div id ="users"><h3>
+
+    
+    </h3></div>
+    <div id="UserName"></div>
+    <div class="flex flex-col justify-center 
+    items-center mt-5" 
+id="messageArea"><h3>Chats:</h3>
+</div>
+<script  >
+    if (performance.navigation.type === 1) {
+         
+            window.location.href = 'http://localhost:8000/login ';
+        }
+    let socket = io();
+    
+    socket.on('usercount', (count,trial) => {
+    document.getElementById('users').innerHTML = `Online Users:${count}`;
+    document.getElementById("UserName").innerHTML=`${trial}`
+    
+
+    });
+    
+    let users= document.getElementById("users").innerHTML=`Online Users:`;
+    
+    let form = document.getElementById('form');
+    let myname = document.getElementById('myname');
+    let message = document.getElementById('message');
+    let messageArea = document.getElementById("messageArea");
+  
+    
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    
+        if (message.value) {
+            socket.emit('send name',myname.value);
+            socket.emit('send message', message.value);
+            message.value = "";
+    
+        }
+    });
+    
+    socket.on("send name", (username) => {
+        let name = document.createElement("p");
+        name.style.backgroundColor = "grey";
+        name.style.width = "100%";
+        name.style.textAlign = "center";
+        name.style.color = "white";
+        name.textContent = username + ":";
+        messageArea.appendChild(name);
+    });
+    
+    socket.on("send message", (chat) => {
+        let chatContent = document.createElement("p");
+        chatContent.textContent = chat;
+        messageArea.appendChild(chatContent);
+    });
+  
+</script>
+    
+
+</div>
+</body>
+</html>

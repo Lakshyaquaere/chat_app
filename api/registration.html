@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="validation.js"></script> -->
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Check for the presence of the success query parameter
+        const successParam = getQueryParam('success');
+        if (successParam === 'true') {
+            // Display the success message
+            document.write('<p>Successfully registered!</p>');
+        }
+        function getQueryemail(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Check for the presence of the success query parameter
+        const successemail = getQueryParam('email-fail');
+        if (successemail  === 'true') {
+            // Display the success message
+            document.write('<p>enter valid email</p>');
+        }
+        
+    </script>       
+    <script>
+        // Check if the page was reloaded
+        if (performance.navigation.type === 1) {
+            // Redirect to the original registration page
+            window.location.href = 'http://localhost:8000/  ';
+        }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="/style.css">
+   
+
+
+</head>
+<body>
+    <h1>Registration</h1>
+    <div>
+        <form action="/postregister" method="POST"  enctype="application/json">
+            <label for="username">UserName</label>
+            <input type="text" id="username" name="username" required><br>
+             
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required><br>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+                
+            <div>
+                <input type="submit" id="submit" value="Submit" enctype="application/json">
+            </div>
+        </form>    
+    </div>
+    
+    <div id="d">
+    </div>
+    <div className="Home">
+        <button id="h">
+            HOME
+        </button>
+        <script>
+            document.getElementById("h").addEventListener('click',()=>{
+               window.location.href='/';
+            })
+    
+               </script>
+ 
+    </div>
+</body>
+</html>

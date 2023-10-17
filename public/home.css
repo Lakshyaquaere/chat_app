@@ -1,0 +1,37 @@
+#title{
+    color: lawngreen;
+    text-align: center;
+}
+#message{
+    padding: auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+   margin: 0 auto;  
+   
+
+}
+#myname{
+    padding: auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#users{
+    padding:auto ;
+    color: lightgreen;
+}
+#submit{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;   
+}
+#users{
+color: green;
+}
+#body{
+    background-color: lightgreen;
+}
