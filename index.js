@@ -18,8 +18,7 @@ console.log(path.join(__dirname+'/public'));
 const sequelize = require('./conn/connection');
 const { Sequelize } = require("sequelize");
 const { readdirSync } = require('fs');
-
-
+const pg= require('pg');
 
 
 
