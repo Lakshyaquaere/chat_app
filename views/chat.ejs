@@ -31,9 +31,11 @@
 id="messageArea"><h3>Chats:</h3>
 </div>
 <script  >
+    
+    
     if (performance.navigation.type === 1) {
          
-            window.location.href = 'http://localhost:8000/login ';
+            window.location.href = '/login ';
         }
     let socket = io();
     
@@ -68,7 +70,7 @@ id="messageArea"><h3>Chats:</h3>
         name.style.backgroundColor = "grey";
         name.style.width = "100%";
         name.style.textAlign = "center";
-        name.style.color = "white";
+        name.style.color = "white"; 
         name.textContent = username + ":";
         messageArea.appendChild(name);
     });

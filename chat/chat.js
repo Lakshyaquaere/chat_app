@@ -6,4 +6,4 @@ const server= http.createServer(app);
 const {Server} = require('socket.io');
 const io = new Server(server);
 require('dotenv').config(); 
-const api = require("../api/api")
+const api = require("../api")

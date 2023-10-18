@@ -11,8 +11,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const validator = require("validator");
 const Helper = require("../Helper/Helper");
+const session = require('express-session');
+app.set('view engine', 'ejs'); 
+app.set('views','html' );
 
 
+app.use(session({
+  secret: '123456', // Replace with a secret key for session encryption
+  resave: false,
+  saveUninitialized: true
+}));
 
 exports.ChatPage = async (req, res) => {
   try {
@@ -71,6 +79,7 @@ exports.PostLogin = async (req, res) => {
       username: req.body.username,
       password: req.body.password,
     };
+    // req.session.username = username;
     const users = await User.findOne({ where: { username: data.username } });
     const password = Helper.decryptPassword(users.dataValues.password);
     if (user) {
@@ -82,7 +91,8 @@ exports.PostLogin = async (req, res) => {
             expiresIn: "50m",
           }
         );
-        res.sendFile(__dirname + "/chat.html");
+        // res.sendFile(__dirname + "/chat.html");
+        res.render('chat');
 
         // Helper.response(
         //   "Success",

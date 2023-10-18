@@ -1,7 +1,7 @@
 const express = require('express');
 const router= express.Router();
 
-const {ChatPage,Main, Login, Registration, PostRegistration,PostLogin,} = require('../api/api');
+const {ChatPage,Main, Login, Registration, PostRegistration,PostLogin,} = require('../api');
 
 router.get("/chat",ChatPage);
 router.get('/',Main);

@@ -12,7 +12,7 @@ const cors = require('cors')
 app.use(body.raw());
 app.use(body.json());
 app.use(body.urlencoded({ extended: true }));
-const login = require("./api/api")
+const login = require("./api")
 app.use(express.static(path.join(__dirname + '/public')));
 console.log(path.join(__dirname+'/public'));
 const sequelize = require('./conn/connection');
