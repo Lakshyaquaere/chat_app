@@ -19,7 +19,8 @@ const sequelize = require('./conn/connection');
 const { Sequelize } = require("sequelize");
 const { readdirSync } = require('fs');
 const pg= require('pg');
-
+app.set('view engine', 'ejs'); 
+app.set('views',__dirname+'/views' );
 
 
 //Allowing Cors

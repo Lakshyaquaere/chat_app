@@ -25,7 +25,7 @@
 
     
     </h3></div>
-    <div id="UserName"></div>
+    <div id="UserName"><%= username %></div>
     <div class="flex flex-col justify-center 
     items-center mt-5" 
 id="messageArea"><h3>Chats:</h3>
@@ -41,7 +41,7 @@ id="messageArea"><h3>Chats:</h3>
     
     socket.on('usercount', (count,trial) => {
     document.getElementById('users').innerHTML = `Online Users:${count}`;
-    document.getElementById("UserName").innerHTML=`${trial}`
+    document.getElementById("UserName").innerHTML=`${username}`
     
 
     });

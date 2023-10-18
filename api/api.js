@@ -82,7 +82,7 @@ exports.PostLogin = async (req, res) => {
     // req.session.username = username;
     const users = await User.findOne({ where: { username: data.username } });
     const password = Helper.decryptPassword(users.dataValues.password);
-    if (user) {
+    if (users) {
       if (password === data.password) {
         let token = jwt.sign(
           { username1: data.username },
@@ -92,7 +92,7 @@ exports.PostLogin = async (req, res) => {
           }
         );
         // res.sendFile(__dirname + "/chat.html");
-        res.render('chat');
+        res.render('chat',{username:users.username});
 
         // Helper.response(
         //   "Success",
