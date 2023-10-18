@@ -15,6 +15,7 @@ const User = sequelize.define('user',{
 
 });
 
+
 class UserMain  {
    
 

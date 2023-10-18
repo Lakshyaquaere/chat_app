@@ -48,7 +48,7 @@ exports.PostRegistration = async (req, res) => {
       res.send("user already exist");
     }
     else{  if (valid == 0) {
-      res.redirect("http://localhost:8000/registration?email-fail=true");
+      res.redirect("https://chat-app-jffe.onrender.com/registration?email-fail=true");
     } else {
       User.create({
         username: `${req.body.username}`,
@@ -58,7 +58,7 @@ exports.PostRegistration = async (req, res) => {
         .catch((err) => {
           console.log(err);
         });
-      res.redirect("http://localhost:8000/registration?success=true");
+      res.redirect("https://chat-app-jffe.onrender.com/registration?success=true");
     }}
   
   } catch (err) {}
